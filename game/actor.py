@@ -27,9 +27,11 @@ if __name__ == "__main__":
     board = Board()
     player = Actor(2, 3, 'P')  # Create player unit
     enemy = Actor(5, 5, 'E')  # Create enemy unit
+    level_exit = Actor(9, 9, 'W')  # Target for the player to get to
 
     board.place_actor(player.x, player.y, player.symbol)
     board.place_actor(enemy.x, enemy.y, enemy.symbol)
+    board.place_actor(level_exit.x, level_exit.y, level_exit.symbol)
 
     board.display()
 
