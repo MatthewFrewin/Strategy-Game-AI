@@ -1,10 +1,11 @@
 import random
 import os
-from board import Board
-from actor import Actor
+from game.board import Board
+from game.actor import Actor
+from ai.ai_controller import get_ai_strategy
 
 class Game:
-    def __init__(self, width=10, height=10):
+    def __init__(self, width=10, height=10, ai_type="random"):
         """Initialise the board and actors"""
         self.board = Board(width, height)
         self.player = Actor(2, 3, 'P')
@@ -13,6 +14,9 @@ class Game:
         self.board.place_actor(self.player.x, self.player.y, self.player.symbol)
         self.board.place_actor(self.enemy.x, self.enemy.y, self.enemy.symbol)
         self.board.place_actor(self.level_exit.x, self.level_exit.y, self.level_exit.symbol)
+
+        self.ai = get_ai_strategy(ai_type)
+        self.turn_count = 0
 
     def clear_screen(self):
         """Clear the screen (Windows/Mac/Linux compatible)"""
@@ -56,8 +60,11 @@ class Game:
                 print("Game Over! The enemy caught you.")
                 break
 
+            #self.enemy_turn()
+            #move_towards_player(self.enemy, self.player, self.board)
+            self.ai(self.enemy, self.player, self.board)
 
-            self.enemy_turn()
+            self.turn_count += 1
             if self.is_game_over():
                 print("Game Over! The enemy caught you.")
                 break
