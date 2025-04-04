@@ -1,5 +1,5 @@
 from game.game import Game
 
 if __name__ == "__main__":
-    game = Game()
+    game = Game(ai_type="")
     game.run()

@@ -1,11 +1,5 @@
 def move_towards_player(enemy, player, board):
-    """Move the enemy directly towards the player"""
-    dx = 0 #1 if enemy.x < player.x else -1
-    dy = 0 #1 if enemy.y < player.y else -1
-
-    if enemy.x != player.x:
-        dx = 1 if enemy.x < player.x else -1
-    elif enemy.y != player.y:
-        dy = 1 if enemy.y < player.y else -1
-
+    """Move diagonally toward player (e.g. on both the x- AND y-axis, if needed)."""
+    dx = 1 if enemy.x < player.x else (-1 if enemy.x > player.x else 0)
+    dy = 1 if enemy.y < player.y else (-1 if enemy.y > player.y else 0)
     enemy.move(dx, dy, board)

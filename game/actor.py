@@ -6,19 +6,17 @@ class Actor:
         self.symbol = symbol
 
     def move(self, dx, dy, board):
-        """
-        Moves the unit by (dx, dy) if within board bounds.
-        """
+        """Moves the actor by the given (dx, dy) delta arguments (if the space is available to move in to)"""
         new_x = self.x + dx
         new_y = self.y + dy
 
-        if 0 <= new_x < board.width and 0 <= new_y < board.height:
+        if 0 <= new_x < board.width and 0 <= new_y < board.height and not board.is_blocked(new_x, new_y):
             board.clear_position(self.x, self.y)  # Remove from old position
             self.x = new_x
             self.y = new_y
             board.place_actor(self.x, self.y, self.symbol)  # Place at new position
-        else:
-            print(f"Error: Cannot move {self.symbol} to ({new_x}, {new_y}) - Out of bounds!")
+        #else:
+            #print(f"Error: Cannot move {self.symbol} to ({new_x}, {new_y}) - Out of bounds!")
 
 # Example usage (can be removed later)
 if __name__ == "__main__":
