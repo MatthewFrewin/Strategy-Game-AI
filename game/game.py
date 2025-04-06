@@ -12,7 +12,7 @@ class Game:
     def __init__(self, width=10, height=10, ai_type="random", auto_mode=False, player_bot=None):
         """Initialise the board and actors"""
         self.board = Board(width, height)
-        self.board.load_from_file("levels/level2.txt")  # Load level 1!
+        self.board.load_from_file("levels/level3.txt")  # Load level
 
         px, py = self.board.find_symbol(Game.PLAYER_SYMBOL)
         ex, ey = self.board.find_symbol(Game.ENEMY_SYMBOL)

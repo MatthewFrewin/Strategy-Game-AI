@@ -17,7 +17,7 @@ ACTIONS = [(0, -1), (0, 1), (-1, 0), (1, 0)]
 Q = defaultdict(dict)
 
 def get_state(enemy, player):
-    return enemy.x, enemy.y, player.x, player.y
+    return enemy.x - player.x, enemy.y - player.y
 
 def choose_action(state):
     if random.random() < EPSILON or state not in Q:
