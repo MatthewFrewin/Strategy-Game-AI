@@ -1,0 +1,19 @@
+
+<div class="controls">
+  <button (click)="move('w')">↑</button><br />
+  <button (click)="move('a')">←</button>
+  <button (click)="move('s')">↓</button>
+  <button (click)="move('d')">→</button><br /><br />
+  <button (click)="moveAI()">Run AI</button>
+  <button (click)="resetGame()">Reset</button>
+</div>
+
+<div class="board">
+  <div *ngFor="let row of grid" class="row">
+    <span *ngFor="let cell of row" [ngClass]="'cell cell-' + cell">
+      {{ cell }}
+    </span>
+  </div>
+</div>
+
+

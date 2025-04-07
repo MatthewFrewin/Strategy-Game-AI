@@ -1,0 +1,42 @@
+.board {
+  font-family: monospace;
+}
+
+.row {
+  display: flex;
+}
+
+.cell {
+  width: 1.5em;
+  height: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #eee;
+}
+
+.cell-P { background-color: lightgreen; }
+.cell-E { background-color: lightcoral; }
+.cell-W { background-color: gold; }
+.cell-X { background-color: black; color: white; }
+
+:host  {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f2f2f2;
+}
+
+.controls {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+button {
+  margin: 5px;
+  padding: 0.5em 1em;
+  font-size: 1rem;
+  cursor: pointer;
+}
